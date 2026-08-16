@@ -1,181 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MoneyTools — Free Salary Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<title>MoneyTools — 2026 Salary Calculator</title>
+<meta name="description" content="Free 2026 US salary calculator. Estimate your gross pay, federal income tax, Social Security, Medicare and take-home pay.">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-      line-height: 1.6;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 22px 20px;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+  line-height: 1.5;
+}
 
-    .nav {
-      max-width: 1000px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background: #0f172a;
+  color: white;
+  padding: 20px;
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-    }
+.nav {
+  max-width: 1050px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .hero {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 70px 20px 90px;
-    }
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+}
 
-    .hero h1 {
-      font-size: 44px;
-      margin-bottom: 15px;
-    }
+.hero {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 65px 20px 105px;
+}
 
-    .hero p {
-      color: #cbd5e1;
-      font-size: 18px;
-      max-width: 650px;
-      margin: auto;
-    }
+.hero h1 {
+  font-size: clamp(34px, 6vw, 54px);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
 
-    .calculator {
-      max-width: 700px;
-      margin: -45px auto 60px;
-      background: white;
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 15px 45px rgba(0,0,0,0.12);
-      position: relative;
-    }
+.hero p {
+  max-width: 680px;
+  margin: auto;
+  color: #cbd5e1;
+  font-size: 18px;
+}
 
-    .calculator h2 {
-      margin-bottom: 25px;
-      font-size: 28px;
-    }
+.calculator {
+  max-width: 760px;
+  margin: -55px auto 65px;
+  background: white;
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 18px 55px rgba(0,0,0,.12);
+}
 
-    .field {
-      margin-bottom: 20px;
-    }
+.calculator h2 {
+  font-size: 29px;
+  margin-bottom: 8px;
+}
 
-    label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+.subtitle {
+  color: #64748b;
+  margin-bottom: 28px;
+}
 
-    input, select {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      font-size: 16px;
-    }
+.field {
+  margin-bottom: 20px;
+}
 
-    button {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 10px;
-      background: #2563eb;
-      color: white;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-    }
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
 
-    button:hover {
-      background: #1d4ed8;
-    }
+input,
+select {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 11px;
+  font-size: 16px;
+  background: white;
+}
 
-    .result {
-      display: none;
-      margin-top: 25px;
-      padding: 25px;
-      background: #eff6ff;
-      border-radius: 12px;
-    }
+button {
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  border-radius: 11px;
+  background: #2563eb;
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+}
 
-    .result h3 {
-      font-size: 25px;
-      margin-bottom: 15px;
-    }
+button:hover {
+  background: #1d4ed8;
+}
 
-    .result-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid #dbeafe;
-    }
+.result {
+  display: none;
+  margin-top: 30px;
+}
 
-    .tools {
-      max-width: 1000px;
-      margin: 0 auto 70px;
-      padding: 0 20px;
-    }
+.result-title {
+  background: #eff6ff;
+  padding: 22px;
+  border-radius: 15px;
+  margin-bottom: 18px;
+}
 
-    .tools h2 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
+.takehome {
+  font-size: 34px;
+  font-weight: 800;
+  color: #1d4ed8;
+}
 
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
+.result-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
 
-    .tool-card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    }
+.result-card h3 {
+  padding: 16px 18px;
+  background: #f8fafc;
+}
 
-    .tool-card h3 {
-      margin-bottom: 8px;
-    }
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 18px;
+  border-top: 1px solid #e2e8f0;
+}
 
-    .tool-card p {
-      color: #64748b;
-    }
+.row strong {
+  font-weight: 700;
+}
 
-    footer {
-      background: #111827;
-      color: #94a3b8;
-      text-align: center;
-      padding: 30px 20px;
-    }
+.disclaimer {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 18px;
+}
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 34px;
-      }
+.tools {
+  max-width: 1050px;
+  margin: 0 auto 70px;
+  padding: 0 20px;
+}
 
-      .calculator {
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-    }
-  </style>
+.tools h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 30px;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.tool-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.tool-card h3 {
+  margin-bottom: 8px;
+}
+
+.tool-card p {
+  color: #64748b;
+}
+
+footer {
+  background: #0f172a;
+  color: #94a3b8;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+@media(max-width:600px) {
+  .calculator {
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 23px;
+  }
+
+  .hero {
+    padding-bottom: 90px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -187,52 +225,167 @@
 </header>
 
 <section class="hero">
-  <h1>Understand Your Money.</h1>
+  <h1>Know What You Actually Take Home.</h1>
   <p>
-    Free tools to calculate your salary, compare jobs,
-    understand your income and make better financial decisions.
+    Estimate your 2026 US salary, federal income tax,
+    Social Security, Medicare and take-home pay.
   </p>
 </section>
 
 <section class="calculator">
 
-  <h2>Salary Calculator</h2>
+  <h2>2026 US Salary Calculator</h2>
+
+  <p class="subtitle">
+    Enter your income and basic tax information.
+  </p>
 
   <div class="field">
-    <label for="hourly">Hourly wage ($)</label>
-    <input type="number" id="hourly" placeholder="Example: 25">
+    <label for="payType">I am paid</label>
+    <select id="payType">
+      <option value="hourly">Hourly</option>
+      <option value="annual">Annual salary</option>
+    </select>
   </div>
 
   <div class="field">
+    <label for="income">Pay ($)</label>
+    <input
+      type="number"
+      id="income"
+      placeholder="Example: 25"
+      min="0"
+      step="0.01"
+    >
+  </div>
+
+  <div class="field" id="hoursField">
     <label for="hours">Hours per week</label>
-    <input type="number" id="hours" value="40">
+    <input
+      type="number"
+      id="hours"
+      value="40"
+      min="1"
+      max="168"
+    >
   </div>
 
   <div class="field">
     <label for="weeks">Weeks worked per year</label>
-    <input type="number" id="weeks" value="52">
+    <input
+      type="number"
+      id="weeks"
+      value="52"
+      min="1"
+      max="52"
+    >
   </div>
 
-  <button onclick="calculateSalary()">Calculate Salary</button>
+  <div class="field">
+    <label for="status">Filing status</label>
+    <select id="status">
+      <option value="single">Single</option>
+      <option value="married">Married Filing Jointly</option>
+      <option value="hoh">Head of Household</option>
+      <option value="mfs">Married Filing Separately</option>
+    </select>
+  </div>
+
+  <button onclick="calculateSalary()">
+    Calculate My Take-Home Pay
+  </button>
 
   <div class="result" id="result">
 
-    <h3>Your estimated income</h3>
-
-    <div class="result-row">
-      <span>Weekly</span>
-      <strong id="weekly"></strong>
+    <div class="result-title">
+      <div>Estimated annual take-home pay</div>
+      <div class="takehome" id="annualTakeHome">$0</div>
     </div>
 
-    <div class="result-row">
-      <span>Monthly</span>
-      <strong id="monthly"></strong>
+    <div class="result-card">
+
+      <h3>Gross income</h3>
+
+      <div class="row">
+        <span>Weekly</span>
+        <strong id="weeklyGross"></strong>
+      </div>
+
+      <div class="row">
+        <span>Biweekly</span>
+        <strong id="biweeklyGross"></strong>
+      </div>
+
+      <div class="row">
+        <span>Monthly</span>
+        <strong id="monthlyGross"></strong>
+      </div>
+
+      <div class="row">
+        <span>Annual</span>
+        <strong id="annualGross"></strong>
+      </div>
+
     </div>
 
-    <div class="result-row">
-      <span>Yearly</span>
-      <strong id="yearly"></strong>
+    <div class="result-card">
+
+      <h3>Estimated federal taxes</h3>
+
+      <div class="row">
+        <span>Federal income tax</span>
+        <strong id="federalTax"></strong>
+      </div>
+
+      <div class="row">
+        <span>Social Security</span>
+        <strong id="socialSecurity"></strong>
+      </div>
+
+      <div class="row">
+        <span>Medicare</span>
+        <strong id="medicare"></strong>
+      </div>
+
+      <div class="row">
+        <span>Total estimated federal taxes</span>
+        <strong id="totalTax"></strong>
+      </div>
+
     </div>
+
+    <div class="result-card">
+
+      <h3>Estimated take-home pay</h3>
+
+      <div class="row">
+        <span>Weekly</span>
+        <strong id="weeklyNet"></strong>
+      </div>
+
+      <div class="row">
+        <span>Biweekly</span>
+        <strong id="biweeklyNet"></strong>
+      </div>
+
+      <div class="row">
+        <span>Monthly</span>
+        <strong id="monthlyNet"></strong>
+      </div>
+
+      <div class="row">
+        <span>Annual</span>
+        <strong id="annualNet"></strong>
+      </div>
+
+    </div>
+
+    <p class="disclaimer">
+      Estimate only. This calculator uses simplified 2026 federal
+      income-tax and FICA calculations and does not currently include
+      state/local taxes, credits, deductions beyond the standard deduction,
+      benefits, retirement contributions or other payroll adjustments.
+    </p>
 
   </div>
 
@@ -246,22 +399,22 @@
 
     <div class="tool-card">
       <h3>Job Comparison</h3>
-      <p>Compare two job offers and see which one could pay more.</p>
+      <p>Compare two job offers and see which one could leave you with more money.</p>
     </div>
 
     <div class="tool-card">
       <h3>Overtime Calculator</h3>
-      <p>Calculate how much your overtime could add to your income.</p>
+      <p>See how overtime could change your annual income.</p>
     </div>
 
     <div class="tool-card">
       <h3>Cost of Living</h3>
-      <p>Compare salaries and living costs between different locations.</p>
+      <p>Compare income and living costs between US locations.</p>
     </div>
 
     <div class="tool-card">
       <h3>Can I Afford It?</h3>
-      <p>See whether a purchase fits your income and budget.</p>
+      <p>Estimate whether a purchase fits your income and budget.</p>
     </div>
 
   </div>
@@ -269,46 +422,224 @@
 </section>
 
 <footer>
-  <p>MoneyTools — Free financial calculators and tools.</p>
+  <p>MoneyTools — Free financial calculators.</p>
 </footer>
 
 <script>
 
+const federalBrackets = {
+  single: [
+    [12400, 0.10],
+    [50400, 0.12],
+    [105700, 0.22],
+    [201775, 0.24],
+    [256225, 0.32],
+    [640600, 0.35],
+    [Infinity, 0.37]
+  ],
+
+  married: [
+    [24800, 0.10],
+    [100800, 0.12],
+    [211400, 0.22],
+    [403550, 0.24],
+    [512450, 0.32],
+    [768700, 0.35],
+    [Infinity, 0.37]
+  ],
+
+  hoh: [
+    [17700, 0.10],
+    [67450, 0.12],
+    [105700, 0.22],
+    [201750, 0.24],
+    [256200, 0.32],
+    [640600, 0.35],
+    [Infinity, 0.37]
+  ],
+
+  mfs: [
+    [12400, 0.10],
+    [50400, 0.12],
+    [105700, 0.22],
+    [201775, 0.24],
+    [256225, 0.32],
+    [384350, 0.35],
+    [Infinity, 0.37]
+  ]
+};
+
+const standardDeduction = {
+  single: 16100,
+  married: 32200,
+  hoh: 24150,
+  mfs: 16100
+};
+
+function calculateFederalTax(taxableIncome, status) {
+
+  if (taxableIncome <= 0) return 0;
+
+  const brackets = federalBrackets[status];
+
+  let tax = 0;
+  let previousLimit = 0;
+
+  for (let i = 0; i < brackets.length; i++) {
+
+    const upperLimit = brackets[i][0];
+    const rate = brackets[i][1];
+
+    const taxableInThisBracket =
+      Math.min(taxableIncome, upperLimit) - previousLimit;
+
+    if (taxableInThisBracket > 0) {
+      tax += taxableInThisBracket * rate;
+    }
+
+    if (taxableIncome <= upperLimit) {
+      break;
+    }
+
+    previousLimit = upperLimit;
+  }
+
+  return tax;
+}
+
+function money(value) {
+  return "$" + value.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
 function calculateSalary() {
 
-  const hourly = parseFloat(document.getElementById("hourly").value);
+  const payType = document.getElementById("payType").value;
+  const income = parseFloat(document.getElementById("income").value);
   const hours = parseFloat(document.getElementById("hours").value);
   const weeks = parseFloat(document.getElementById("weeks").value);
+  const status = document.getElementById("status").value;
 
-  if (!hourly || !hours || !weeks) {
-    alert("Please enter all values.");
+  if (!income || income < 0) {
+    alert("Please enter your pay.");
     return;
   }
 
-  const yearly = hourly * hours * weeks;
-  const weekly = hourly * hours;
-  const monthly = yearly / 12;
+  let annualGross;
 
-  document.getElementById("weekly").textContent =
-    "$" + weekly.toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+  if (payType === "hourly") {
+    annualGross = income * hours * weeks;
+  } else {
+    annualGross = income;
+  }
 
-  document.getElementById("monthly").textContent =
-    "$" + monthly.toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+  const deduction = standardDeduction[status];
 
-  document.getElementById("yearly").textContent =
-    "$" + yearly.toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+  const taxableIncome = Math.max(
+    0,
+    annualGross - deduction
+  );
+
+  const federalTax =
+    calculateFederalTax(taxableIncome, status);
+
+  // 2026 Social Security:
+  // 6.2% up to $184,500
+  const socialSecurity =
+    Math.min(annualGross, 184500) * 0.062;
+
+  // 2026 Medicare:
+  // 1.45% on all covered wages
+  let medicare = annualGross * 0.0145;
+
+  // Additional Medicare Tax
+  let additionalMedicareThreshold = 200000;
+
+  if (status === "married") {
+    additionalMedicareThreshold = 250000;
+  }
+
+  if (status === "mfs") {
+    additionalMedicareThreshold = 125000;
+  }
+
+  if (annualGross > additionalMedicareThreshold) {
+    medicare +=
+      (annualGross - additionalMedicareThreshold) * 0.009;
+  }
+
+  const totalTax =
+    federalTax +
+    socialSecurity +
+    medicare;
+
+  const annualNet =
+    Math.max(0, annualGross - totalTax);
+
+  const weeklyGross = annualGross / 52;
+  const biweeklyGross = annualGross / 26;
+  const monthlyGross = annualGross / 12;
+
+  const weeklyNet = annualNet / 52;
+  const biweeklyNet = annualNet / 26;
+  const monthlyNet = annualNet / 12;
+
+  document.getElementById("weeklyGross").textContent =
+    money(weeklyGross);
+
+  document.getElementById("biweeklyGross").textContent =
+    money(biweeklyGross);
+
+  document.getElementById("monthlyGross").textContent =
+    money(monthlyGross);
+
+  document.getElementById("annualGross").textContent =
+    money(annualGross);
+
+  document.getElementById("federalTax").textContent =
+    money(federalTax);
+
+  document.getElementById("socialSecurity").textContent =
+    money(socialSecurity);
+
+  document.getElementById("medicare").textContent =
+    money(medicare);
+
+  document.getElementById("totalTax").textContent =
+    money(totalTax);
+
+  document.getElementById("weeklyNet").textContent =
+    money(weeklyNet);
+
+  document.getElementById("biweeklyNet").textContent =
+    money(biweeklyNet);
+
+  document.getElementById("monthlyNet").textContent =
+    money(monthlyNet);
+
+  document.getElementById("annualNet").textContent =
+    money(annualNet);
+
+  document.getElementById("annualTakeHome").textContent =
+    money(annualNet);
 
   document.getElementById("result").style.display = "block";
 }
+
+document.getElementById("payType").addEventListener("change", function() {
+
+  const hoursField =
+    document.getElementById("hoursField");
+
+  if (this.value === "hourly") {
+    hoursField.style.display = "block";
+  } else {
+    hoursField.style.display = "none";
+  }
+
+});
 
 </script>
 
